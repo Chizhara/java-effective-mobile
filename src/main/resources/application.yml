@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  datasource:
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/effective_mobile
+  jpa:
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+  application:
+    name: demo
+
+jwt:
+  secret:
+    access: oRJOXOVS7yzhpCKuMrDJ4jiSU30puMoVhf0VsrNzBUdpiBCI2+LbQhyG3phg+AaGbYKyAZ9DPaHYkK2psa3t8Q==
+    refresh: Y9NEyEnH3EcS29pXcMEeQscIf7DGVnRfwg9CFMcCOvzmJtjX+UFy82w/9DFO/2PSOWTfDB20lmuLWd61NqZlNw==
+
