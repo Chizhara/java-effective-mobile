@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+
+  em-service:
+    image: em-service
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - em-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://em-db:5432/effective_mobile
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - STAT-SERVER_URL=http://stats-server:9090
+
+  em-db:
+    image: postgres:16-alpine
+    container_name: em-db
+    ports:
+      - "6542:5432"
+    environment:
+      - POSTGRES_DB=effective_mobile
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
